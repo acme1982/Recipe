@@ -4,7 +4,7 @@ import './App.css';
 import Form from './components/Form';
 import Recipes from './components/Recipes';
 
-const API_KEY = '33358147ed7637981cfcd117fc486eb8';
+const API_KEY = '571807c53fc4a12e08a5a15417b568ca';
 class App extends Component {
 	state = {
 		recipes: []
@@ -17,7 +17,6 @@ class App extends Component {
 		);
 		const data = await api_call.json();
 		this.setState({ recipes: data.recipes });
-		console.log(this.state.recipes);
 	};
 	render() {
 		return (
