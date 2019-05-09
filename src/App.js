@@ -18,23 +18,23 @@ class App extends Component {
 		const data = await api_call.json();
 		this.setState({ recipes: data.recipes });
 	};
-
+	// Mounts data then when we click 'Go Home' data stays.
 	componentDidMount() {
 		const json = localStorage.getItem('recipes');
 		const recipes = JSON.parse(json);
 		this.setState({ recipes: recipes }); // if the names of state and argument is the same the second bit can be amended.
 	}
-
+	// When component updates state updates (when press 'search').
 	componentDidUpdate = () => {
-		const recipes = JSON.stringify(this.state.recipes);
-		localStorage.setItem('recipes', recipes);
+		const recipes = JSON.stringify(this.state.recipes); // Takes only strings
+		localStorage.setItem('recipes', recipes); // Assign to local storage.
 	};
 
 	render() {
 		return (
 			<div className='App'>
 				<header className='App-header'>
-					<h1 className='App-title'>Recipe Title </h1>
+					<h1 className='App-title'>Recipe Search</h1>
 				</header>
 				<Form getSearch={this.getSearch} />
 				<Recipes recipes={this.state.recipes} />
