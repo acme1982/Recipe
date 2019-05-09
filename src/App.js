@@ -18,6 +18,18 @@ class App extends Component {
 		const data = await api_call.json();
 		this.setState({ recipes: data.recipes });
 	};
+
+	componentDidMount() {
+		const json = localStorage.getItem('recipes');
+		const recipes = JSON.parse(json);
+		this.setState({ recipes: recipes }); // if the names of state and argument is the same the second bit can be amended.
+	}
+
+	componentDidUpdate = () => {
+		const recipes = JSON.stringify(this.state.recipes);
+		localStorage.setItem('recipes', recipes);
+	};
+
 	render() {
 		return (
 			<div className='App'>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 const API_KEY = '571807c53fc4a12e08a5a15417b568ca';
 class Recipe extends Component {
@@ -35,7 +36,9 @@ class Recipe extends Component {
 								<a href={recipe.publisher_url}>{recipe.publisher_url}</a>
 							</span>
 						</p>
-						<button className='active-recipe__button'>Go Home</button>
+						<button className='active-recipe__button'>
+							<Link to='/'>Go Home</Link>
+						</button>
 					</div>
 				)}
 			</div>
