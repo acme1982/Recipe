@@ -18,7 +18,7 @@ class App extends Component {
 		const data = await api_call.json();
 		this.setState({ recipes: data.recipes });
 	};
-	// Mounts data then when we click 'Go Home' data stays.
+	// Mounts data then when we click 'Go Home' data stays. Depending on ComponentDidUpdate.
 	componentDidMount() {
 		const json = localStorage.getItem('recipes');
 		const recipes = JSON.parse(json);
